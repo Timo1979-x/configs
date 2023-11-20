@@ -1,0 +1,46 @@
+plugins {
+    id("maven-publish")
+    id("org.barfuin.gradle.taskinfo") version "2.1.0"
+}
+
+def targetFile = file(project.buildDir.toString() + "/checkstyle.zip")
+
+tasks.register("zip", Zip) {
+    archiveFile.set(targetFile)
+    from("data/checkstyle.xml")
+    inputs.file("data/checkstyle.xml")
+}
+
+tasks.register("clean") {
+    doLast {
+        project.layout.buildDirectory.dir('.').get().asFile.deleteDir()
+    }
+}
+
+publishing {
+    publications {
+        checkstyle(MavenPublication) {
+            artifact(tasks.zip.outputs.getFiles().singleFile)
+        }
+    }
+    repositories {
+        maven {
+            // systemProp.mvn.deploy.url=some url in c:\Users\<user>\.gradle\gradle.properties
+            url = uri(System.getProperty("mvn.publish.url"))
+            credentials {
+                username = System.getProperty("mvn.publish.username")
+                password = System.getProperty("mvn.publish.password")
+            }
+        }
+    }
+}
+
+// Каждая задача публикации должна зависеть от задачи zip
+afterEvaluate {
+    tasks.each {
+        if (it.name.startsWith("publish")) {
+            it.inputs.file(targetFile)
+            it.dependsOn(tasks.zip)
+        }
+    }
+}
