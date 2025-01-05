@@ -1,0 +1,185 @@
+# ssh identity files located in crypto container
+# make links to them in your home directory:
+# Linux:
+#  mkdir -p ~/.ssh
+#  ln -s /media/veracrypt8/keys/_tim/23-11-28_16-43-13/id_rsa_github ~/.ssh/id_rsa_github
+#  ln -s /media/veracrypt8/keys/_tim/23-11-28_16-43-13/id_rsa_github-x ~/.ssh/id_rsa_github-x
+#  ln -s /media/veracrypt8/keys/_tim/23-11-28_16-43-13/id_rsa_other ~/.ssh/id_rsa_other
+# Windows:
+#  mkdir "%USERPROFILE%/.ssh"
+#  mklink "%USERPROFILE%/.ssh/id_rsa_github" "t:/keys/_tim/23-11-28_16-43-13/id_rsa_github"
+#  mklink "%USERPROFILE%/.ssh/id_rsa_github-x" "t:/keys/_tim/23-11-28_16-43-13/id_rsa_github-x"
+#  mklink "%USERPROFILE%/.ssh/id_rsa_other" "t:/keys/_tim/23-11-28_16-43-13/id_rsa_other"
+
+
+Host github.com
+  User git
+  Hostname github.com
+  # IdentityFile c:\Users\ltv\.ssh\id_rsa_github
+  IdentityFile ~/.ssh/id_rsa_github
+
+Host github.com-x
+  User git
+  Hostname github.com
+  IdentityFile ~/.ssh/id_rsa_github-x
+  IdentityAgent none
+
+Host git.gto.by
+  User git
+  Hostname git.gto.by
+  Port 22003
+
+Host bitbucket.org
+  User timoha2006
+  Hostname bitbucket.org
+  
+Host app1
+  User tim
+  Hostname 192.168.1.11
+  Port 22011
+  ProxyJump gate-dc
+
+  # UNUSED port forwardings:
+  # что-то связанное с gsecTLS от НЦЭУ:
+  #  LocalForward 127.252.0.35:10480 10.252.0.35:10480
+  # что-то связанное с gsecTLS от НЦЭУ:
+  #  LocalForward 127.252.0.57:443 10.252.0.57:443
+
+#Host app1-direct
+#  User tim
+#  Hostname dc.gto.by
+#  Port 22011
+
+Host stor1
+  User tim
+  Hostname 192.168.1.21
+  Port 22021
+  ProxyJump tim@dc.gto.by:22003
+
+Host app2
+  User tim
+  Hostname 192.168.199.8
+  Port 22008
+  
+Host stor2
+  User tim
+  Hostname 192.168.200.8
+  Port 22008
+
+Host gate-ds210
+  User tim
+  Hostname 178.124.160.15
+  Port 22005
+  # ds210 server:
+  LocalForward 127.168.212.2:3389 192.168.212.2:3389
+
+Host gate-dc-backuper
+  User backuper
+  IdentityFile ~/.ssh/id_rsa_backuper
+  Hostname dc.gto.by
+  Port 22003
+
+Host gate-dc
+  User tim
+  Hostname dc.gto.by
+  Port 22003
+  
+  # master mariadb:
+  LocalForward 127.168.1.21:3306 192.168.1.21:3306
+  # rabbitmq:
+  LocalForward 127.168.1.21:15672 192.168.1.21:15672
+  #Direct access stor1 wildfly (http):
+  LocalForward 127.168.1.21:18080 192.168.1.21:18080
+  # management of storsrv1 wildfly:
+  LocalForward 127.168.1.21:19990 192.168.1.21:19990
+
+  # management of appsrv1 wildfly:
+  LocalForward 127.168.198.11:9990 192.168.198.11:9990
+  # management of appsrv1 wildfly:
+  LocalForward 127.168.1.11:9990 192.168.198.11:9990
+  # slave MariaDB:
+  LocalForward 127.168.1.11:3306 192.168.1.11:3306
+  # ds web service:  
+  LocalForward 127.168.1.11:8445 192.168.1.11:8445
+  # Direct access to appsrv1 wildfly (http):
+  LocalForward 127.168.1.11:28080 192.168.1.11:28080
+  # Direct access to appsrv1 wildfly (https):
+  LocalForward 127.168.1.11:28443 192.168.1.11:28443
+  # Switch:
+  LocalForward 127.168.1.100:1080 192.168.1.100:80
+  # gai:
+  LocalForward 192.168.7.235:8280 192.168.7.235:8280
+  # Удостоверяющий центр remote access:
+  LocalForward 127.168.1.31:3389 192.168.1.31:3389
+  # Удостоверяющий центр firebird:
+  LocalForward 127.168.1.31:3050 192.168.1.31:3050
+  # Удостоверяющий центр Cryptoservice:
+  LocalForward 127.168.1.31:49018 192.168.1.31:49018
+  # Регистрационный центр remote access:
+  LocalForward 127.168.1.41:3389 192.168.1.41:3389
+
+  # UNUSED port forwardings:
+  # access DC citadel via inner interface:
+  # LocalForward 127.168.1.2:8781 192.168.1.2:8781
+  # Веб-сервис Минсктранса (minsktrans):
+  # LocalForward 41292 100.100.31.2:41292
+
+  # DEPRECATED port forwardings:
+  #  Old GAI service:
+  #  LocalForward 18181 112.112.112.28:8181
+
+Host gate-office
+  User tim
+  Hostname 192.168.199.2
+  Port 22002
+
+Host gate-office-backuper
+  User backuper
+  IdentityFile ~/.ssh/id_rsa_backuper
+  Hostname 192.168.199.2
+  Port 22002
+  
+Host site2
+  User gtoby
+  Hostname 178.172.163.105
+  Port 22
+  MACs hmac-sha2-512
+  LocalForward 3336 127.0.0.1:3306
+
+Host citadel-dc
+  User loginuser
+  Hostname dc.gto.by
+  Port 22002
+
+Host nas
+  user root
+  Hostname 192.168.100.103
+  Port 22
+  HostkeyAlgorithms +ssh-rsa
+  PubkeyAcceptedAlgorithms +ssh-rsa
+
+Host rpi4
+  User tim
+  Hostname 192.168.100.105
+
+Host rpi3-zt
+  User tim
+  Hostname 192.168.191.101
+
+Host rpi3
+  User tim
+  Hostname 192.168.100.101
+
+Host *
+  ForwardAgent yes
+  ServerAliveInterval 120
+  KeepAlive yes
+  IdentityFile ~/.ssh/id_rsa_other
+
+# Настройки для Linux
+Match exec "[ $(uname -s) = Linux ]"
+    IdentityAgent /run/user/%i/gnupg/S.gpg-agent.ssh
+
+# Настройки для Windows
+Match exec "[ $(cmd.exe /C ver 2>NUL | findstr /I Windows) ]"
+    IdentityAgent \\.\pipe\ssh-pageant
