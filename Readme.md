@@ -7,6 +7,9 @@
   * конфигурация для oh-my-zsh
   * открытые ключи GPG
 
+## Сокращенные ссылки
+https://tinyurl.com/566eucny -> id_rsa_other.pub
+
 ## checkstyle config
 Для использования с внутренним maven-репозиторием с доступом по ssh в файле c:/Users/<user>/.gradle/gradle.properties или $GRADLE_USER_HOME/gradle.properties прописываем данные
 ```properties
