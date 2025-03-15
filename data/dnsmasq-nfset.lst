@@ -828,4 +828,3 @@ nftset=/zona.media/4#inet#fw4#vpn_domains
 nftset=/icanhazip.com/4#inet#fw4#vpn_domains
 nftset=/devart.com/4#inet#fw4#vpn_domains
 nftset=/jetbrains.com/4#inet#fw4#vpn_domains
-nftset=/microsoft.com/4#inet#fw4#vpn_domains
