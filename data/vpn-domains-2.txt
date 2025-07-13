@@ -7,3 +7,4 @@ epicgames.com
 afn.by
 deepl.com
 repo.protonvpn.com
+download.sublimetext.com
