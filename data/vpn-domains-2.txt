@@ -8,4 +8,4 @@ afn.by
 deepl.com
 repo.protonvpn.com
 download.sublimetext.com
-cloud.elastic.co
+elastic.co
