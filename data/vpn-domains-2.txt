@@ -4,7 +4,7 @@ jetbrains.com
 devexpress.com
 windsurf.com
 epicgames.com
-afn.by
+githubusercontent.com
 deepl.com
 repo.protonvpn.com
 download.sublimetext.com
