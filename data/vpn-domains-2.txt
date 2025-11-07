@@ -9,4 +9,4 @@ deepl.com
 repo.protonvpn.com
 download.sublimetext.com
 elastic.co
-mega.nz
+st.com
