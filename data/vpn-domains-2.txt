@@ -10,3 +10,4 @@ repo.protonvpn.com
 download.sublimetext.com
 elastic.co
 st.com
+studfile.net
