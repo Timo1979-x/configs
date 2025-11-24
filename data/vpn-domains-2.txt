@@ -12,3 +12,4 @@ elastic.co
 st.com
 studfile.net
 flibusta.site
+arduino.cc
