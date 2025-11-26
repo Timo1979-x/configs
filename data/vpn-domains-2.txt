@@ -13,3 +13,4 @@ st.com
 studfile.net
 flibusta.site
 arduino.cc
+archive.mozilla.org
