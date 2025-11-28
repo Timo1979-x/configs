@@ -14,4 +14,4 @@ studfile.net
 flibusta.site
 arduino.cc
 archive.mozilla.org
-codeload.github.com
+github.com
