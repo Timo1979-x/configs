@@ -17,3 +17,4 @@ archive.mozilla.org
 github.com
 allpcb.com
 mouser.com
+wireshark.org
