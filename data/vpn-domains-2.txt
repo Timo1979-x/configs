@@ -19,3 +19,4 @@ allpcb.com
 mouser.com
 wireshark.org
 etahub.com
+aistudio.google.com
