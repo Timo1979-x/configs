@@ -26,8 +26,3 @@ alkalimakersuite-pa.clients6.google.com
 lh3.googleusercontent.com
 people-pa.clients6.google.com
 waa-pa.clients6.google.com
-fonts.googleapis.com
-fonts.gstatic.com
-www.google.com
-www.gstatic.com
-
