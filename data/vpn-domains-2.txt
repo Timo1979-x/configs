@@ -22,7 +22,4 @@ ai.google.dev
 aistudio.google.com
 apis.google.com
 developerprofiles-pa.googleapis.com
-alkalimakersuite-pa.clients6.google.com
 lh3.googleusercontent.com
-people-pa.clients6.google.com
-waa-pa.clients6.google.com
