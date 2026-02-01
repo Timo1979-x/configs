@@ -21,3 +21,13 @@ wireshark.org
 etahub.com
 aistudio.google.com
 ai.google.dev
+alkalimakersuite-pa.clients6.google.com
+apis.google.com
+developerprofiles-pa.googleapis.com
+fonts.googleapis.com
+fonts.gstatic.com
+lh3.googleusercontent.com
+people-pa.clients6.google.com
+waa-pa.clients6.google.com
+www.google.com
+www.gstatic.com
