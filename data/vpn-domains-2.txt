@@ -21,5 +21,6 @@ wireshark.org
 ai.google.dev
 aistudio.google.com
 apis.google.com
-developerprofiles-pa.googleapis.com
-lh3.googleusercontent.com
+alkalimakersuite-pa.clients6.google.com
+people-pa.clients6.google.com
+waa-pa.clients6.google.com
