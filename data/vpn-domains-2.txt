@@ -24,5 +24,3 @@ alkalimakersuite-pa.clients6.google.com
 people-pa.clients6.google.com
 waa-pa.clients6.google.com
 #mouser.com
-#mouser.com
--mouser.com
