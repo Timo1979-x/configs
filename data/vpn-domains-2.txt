@@ -16,7 +16,6 @@ arduino.cc
 archive.mozilla.org
 github.com
 allpcb.com
-mouser.com
 wireshark.org
 ai.google.dev
 aistudio.google.com
