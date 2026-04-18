@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'data/vpn-domains-*.txt'
+      - 'data/vpn-domainsx-*.txt'
   workflow_dispatch: # Позволяет запустить вручную
 
 jobs:
