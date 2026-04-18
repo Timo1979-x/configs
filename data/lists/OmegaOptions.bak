@@ -9,7 +9,7 @@
       {
         "condition": {
           "conditionType": "HostWildcardCondition",
-          "pattern": "*..ua"
+          "pattern": "*.ua"
         },
         "profileName": "sing-box-proxy"
       },
