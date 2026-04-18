@@ -30,4 +30,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update OmegaOptions.bak [skip ci]"
-          file_pattern: 'data/OmegaOptions.bak'
+          file_pattern: 'data/Omega*.bak'
