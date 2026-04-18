@@ -113,12 +113,36 @@ alias ll="ls -alh"
 alias cdb="cd /media/veracrypt9/ais/main/back"
 alias cdfe="cd /media/veracrypt9/ais/main/front/engineer.plain"
 alias cdfa="cd /media/veracrypt9/ais/main/front/arm_office.plain"
+alias cdwz="cd ~/.config/wezterm"
+
 alias code-java="code --extensions-dir ~/vscode-profiles/java/extensions --user-data-dir ~/vscode-profiles/java/user-data"
-alias dc="doublecmd /O $(pwd) >/dev/null 2>/dev/null &"
-alias ap="ansible-playbook"
+alias dcmd="doublecmd /O $(pwd) >/dev/null 2>/dev/null &"
+alias dc="docker compose"
+alias ap="ANSIBLE_CONFIG=./ansible.cfg ansible-playbook"
+alias gcwip="git -c commit.gpgsign=false commit -m wip"
+alias pbcopy="xclip -selection c"
+alias pbpaste="xclip -selection c -o"
+alias c_ssh="code ~/.ssh/config"
+alias qmk_console="qmk console | grep -v -E '(Failed to execute slave_matrix)|(Target disconnected, throttling connection attempt)|(matrix scan frequency:)'"
+alias digr='/usr/bin/dig +short @rpi3'
+alias digs='/usr/bin/dig +short'
 
 #export VAGRANT_HOME=/mnt/d/caches/vagrant
 #export JAVA_HOME=/usr/lib/jvm/jdk-12.0.2
 #export GRAALVM_HOME=/opt/graalvm-ce-java11-22.1.0
 #export PATH=/opt/maven/bin:$PATH
 #export GRADLE_USER_HOME=/mnt/d/caches/gradle
+export PATH=$PATH:/opt/gcc-arm-none-eabi/bin:$HOME/.local/bin
+export MANPAGER='/opt/nvim/bin/nvim +Man!'
+
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_TTY="$(tty)"
+gpg-connect-agent /bye
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/opt/sdkman"
+[[ -s "/opt/sdkman/bin/sdkman-init.sh" ]] && source "/opt/sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

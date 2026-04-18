@@ -6,13 +6,12 @@ def generate():
     domains = set()
     
     # Собираем все домены из файлов vpn-domains-*.txt
-    files = glob.glob('data/vpn-domainsx-*.txt')
+    files = glob.glob('data/vpn-domains-*.txt')
     for file_path in files:
         with open(file_path, 'r', encoding='utf-8') as f:
             for line in f:
                 domain = line.strip()
                 if domain and not domain.startswith('#'):
-                    # Добавляем домен (и поддомены через wildcard)
                     domains.add(domain)
 
     # Базовая структура ProxySwitchy Omega
@@ -28,12 +27,12 @@ def generate():
         },
         # Основной профиль переключения
         "+sing-box-proxy": {
-          "auth": {
-            "fallbackProxy": {
-              "password": "1",
-              "username": "1"
-            }
-          },
+          # "auth": {
+          #   "fallbackProxy": {
+          #     "password": "1",
+          #     "username": "1"
+          #   }
+          # },
           "bypassList": [
             {
               "conditionType": "BypassCondition",
@@ -67,20 +66,13 @@ def generate():
         rules.append({
             "condition": {
                 "conditionType": "HostWildcardCondition",
-                "pattern": domain
-            },
-            "profileName": "sing-box-proxy"
-        })
-        rules.append({
-            "condition": {
-                "conditionType": "HostWildcardCondition",
                 "pattern": f"*.{domain}"
             },
             "profileName": "sing-box-proxy"
         })
 
     # Записываем результат
-    output_path = 'data/OmegaOptions-test.bak'
+    output_path = 'data/lists/OmegaOptions.bak'
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(config, f, indent=2)

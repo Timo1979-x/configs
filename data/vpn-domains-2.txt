@@ -23,5 +23,5 @@ apis.google.com
 alkalimakersuite-pa.clients6.google.com
 people-pa.clients6.google.com
 waa-pa.clients6.google.com
-cursor.sh
 cursor.com
+cursor.sh
