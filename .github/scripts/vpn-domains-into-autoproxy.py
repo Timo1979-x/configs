@@ -1,6 +1,6 @@
 import glob
 import os
-from datetime import date
+from datetime import datetime
 
 def generate():
     domains = set()
@@ -15,7 +15,7 @@ def generate():
                     domains.add(domain)
 
     # Формат AutoProxy требует специального заголовка
-    output_content = f"[AutoProxy 0.2.9]\n! generated at {date.today()}\n\n"
+    output_content = f"[AutoProxy 0.2.9]\n! generated at {datetime.now()}\n\n"
     
     # Добавляем домены. 
     # Префикс || означает "сам домен и все поддомены"
@@ -23,7 +23,7 @@ def generate():
         output_content += f"||{domain}\n"
 
     # Сохраняем в файл
-    output_path = 'data/lists/AutoProxy.list'
+    output_path = 'data/lists/AutoProxy-vpn-domains.list'
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(output_content)
