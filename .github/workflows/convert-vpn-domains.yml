@@ -21,9 +21,9 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Generate OmegaOptions.bak
+      - name: Convert VPN domains into AutoProxy format
         run: |
-          python3 .github/scripts/generate_omega.py
+          python3 .github/scripts/vpn-domains-into-autoproxy.py
 
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v5

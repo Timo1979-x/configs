@@ -1,0 +1,31 @@
+import glob
+import os
+
+def generate():
+    domains = set()
+    
+    # Собираем все домены из файлов vpn-domains-*.txt
+    files = glob.glob('data/vpn-domains-*.txt')
+    for file_path in files:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                domain = line.strip()
+                if domain and not domain.startswith('#'):
+                    domains.add(domain)
+
+    # Формат AutoProxy требует специального заголовка
+    output_content = "[AutoProxy 0.2.9]\n"
+    
+    # Добавляем домены. 
+    # Префикс || означает "сам домен и все поддомены"
+    for domain in sorted(list(domains)):
+        output_content += f"||{domain}\n"
+
+    # Сохраняем в файл
+    output_path = 'data/lists/AutoProxy.list'
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(output_content)
+
+if __name__ == "__main__":
+    generate()
