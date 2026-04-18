@@ -66,7 +66,7 @@ def generate():
         rules.append({
             "condition": {
                 "conditionType": "HostWildcardCondition",
-                "pattern": f"*.{domain}"
+                "pattern": f"*{domain}" if domain.startswith(".") else f"*.{domain}"
             },
             "profileName": "sing-box-proxy"
         })
