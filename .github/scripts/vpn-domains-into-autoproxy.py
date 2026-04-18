@@ -1,6 +1,7 @@
 import glob
 import os
 from datetime import datetime
+from datetime import timezone
 
 def generate():
     domains = set()
@@ -15,7 +16,7 @@ def generate():
                     domains.add(domain)
 
     # Формат AutoProxy требует специального заголовка
-    output_content = f"[AutoProxy 0.2.9]\n! generated at {datetime.now()}\n\n"
+    output_content = f"[AutoProxy 0.2.9]\n! generated at {datetime.now(timezone.utc)}\n\n"
     
     # Добавляем домены. 
     # Префикс || означает "сам домен и все поддомены"
