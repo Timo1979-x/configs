@@ -1,0 +1,32 @@
+name: Generate SwitchyOmega Config
+
+on:
+  push:
+    paths:
+      - 'data/vpn-domains-*.txt'
+  workflow_dispatch: # Позволяет запустить вручную
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Generate OmegaOptions.bak
+        run: |
+          python3 .github/scripts/generate_omega.py
+
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update OmegaOptions.bak [skip ci]"
+          file_pattern: 'data/OmegaOptions.bak'
