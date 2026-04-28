@@ -26,3 +26,4 @@ waa-pa.clients6.google.com
 cursor.com
 cursor.sh
 claude.com
+xyz.com
