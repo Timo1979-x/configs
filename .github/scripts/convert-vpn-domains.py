@@ -11,7 +11,7 @@ def generate_singbox_domains(domains: list[str]) -> str:
 def generate_autoproxy_domains(domains: list[str]) -> str:
     # Формат AutoProxy требует специального заголовка
     output_content: str = (
-        f"[AutoProxy 0.2.9]\n! generated at {datetime.now(timezone.utc)}\n\n{'\n'.join(domains)}"
+        f"[AutoProxy 0.2.9]\n! generated at {datetime.now(timezone.utc)}\n\n"
     )
 
     # Добавляем домены.
