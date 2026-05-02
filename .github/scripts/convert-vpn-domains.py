@@ -44,7 +44,7 @@ def generate():
     )
 
     # Сохраняем в файлы
-    for output_path, output_content in files_contents:
+    for output_path, output_content in files_contents.items():
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(output_content)
