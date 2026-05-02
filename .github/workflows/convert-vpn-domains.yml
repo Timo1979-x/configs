@@ -23,7 +23,7 @@ jobs:
 
       - name: Convert VPN domains into AutoProxy format
         run: |
-          python3 .github/scripts/vpn-domains-into-autoproxy.py
+          python3 .github/scripts/convert-vpn-domains.py
 
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v5
